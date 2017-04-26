@@ -18,7 +18,7 @@ import { ItemModule } from './menu/menu.module';
     BrowserModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
+      { path: '', component: WelcomeComponent },
       { path: 'menu', component: MenuComponent }
     ]),
     ItemModule

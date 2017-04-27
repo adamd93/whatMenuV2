@@ -25,7 +25,8 @@ export class MenuComponent implements  OnDestroy {
         this.sub.unsubscribe();
     }
 
-    search() {
+    search(event) {
+        event.preventDefault();
         this._itemService.getItem()
                 .subscribe(items => this.items = items,
                            error => this.errorMessage = <any>error);

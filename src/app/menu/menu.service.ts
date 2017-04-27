@@ -6,12 +6,12 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
-
+import { Headers, RequestOptions } from '@angular/http';
 import { IItem } from './menu';
 
 @Injectable()
 export class ItemService {
-    private _itemUrl = 'api/menus/items.json';
+    private _itemUrl = 'http://localhost:8081/getMenus';
 
     constructor(private _http: Http) { }
 
@@ -22,7 +22,8 @@ export class ItemService {
     }
 
     getItem(): Observable<IItem[]> {
-        return this._http.get(this._itemUrl).do(data => console.log('All: ' +  JSON.stringify(data)))
+        return this._http.get(this._itemUrl)
+        .do(data => console.log('All: ' +  JSON.stringify(data)))
             .catch(this.handleError);
            
     }

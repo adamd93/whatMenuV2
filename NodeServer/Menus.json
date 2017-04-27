@@ -1,0 +1,20 @@
+{
+   "1" : {
+      "Product" : "Chips",
+	  "Description" : "bag of chips",
+	  "Price" : "€2.20",
+	  "id": 1
+   },
+   "2" : {
+      "Product" : "Taco Chips",
+	  "Description" : "Chips, mince taco sauce",
+	  "Price" : "€4.50",
+	  "id": 2
+   },
+   "3" : {
+      "Product" : "Battered Sausague",
+	  "Description" : "Sausage in Batter",
+	  "Price" : "€1.00",
+	  "id": 3
+   }
+}

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/toPromise';
 import { Headers, RequestOptions } from '@angular/http';
 import { IItem } from './menu';
 
@@ -15,23 +16,24 @@ export class ItemService {
 
     constructor(private _http: Http) { }
 
-    getItems(): Observable<IItem[]> {
-        return this._http.get(this._itemUrl)
-            .do(data => console.log('All: ' +  JSON.stringify(data)))
-            .catch(this.handleError);
+    getItems(): Promise<IItem[]> {
+    return this._http.get(this._itemUrl)
+                    .toPromise()
+                    .then(function (data){
+                        console.log(data);
+                    });
+                    
+                    
     }
+private extractData(res: Response) {
+    let body = res.json();
+    return body.data || { };
+  }
 
-    getItem(): Observable<IItem[]> {
-        return this._http.get(this._itemUrl)
-        .do(data => console.log('All: ' +  JSON.stringify(data)))
-            .catch(this.handleError);
-           
-    }
-
-    private handleError(error: Response) {
+    private handleError(error: any): Promise<any> {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
         console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        return Promise.reject(error.json().error || 'Server error');
     }
 }

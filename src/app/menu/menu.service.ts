@@ -12,23 +12,24 @@ import { IItem } from './menu';
 
 @Injectable()
 export class ItemService {
-    private _itemUrl = 'http://localhost:8081/getMenus';
+    private _itemUrl = 'http://localhost:8081/getPlaces';
 
     constructor(private _http: Http) { }
-
-    getItems(): Promise<IItem[]> {
-    return this._http.get(this._itemUrl)
+    
+    getItems(place:String): Promise<IItem[]> {
+        console.log(place);
+    return this._http.get(this._itemUrl + "/" + place)
                     .toPromise()
-                    .then(function (data){
-                        console.log(data);
-                    });
+                    .then(this.extractData);
                     
                     
     }
-private extractData(res: Response) {
-    let body = res.json();
-    return body.data || { };
-  }
+    private extractData(res: Response) {
+        let body = res.json();
+        var i=0;
+        return body.document;
+    }
+
 
     private handleError(error: any): Promise<any> {
         // in a real world app, we may send the server to some remote logging infrastructure

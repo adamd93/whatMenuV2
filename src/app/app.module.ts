@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { MenuComponent } from './menu/menu.component';
@@ -21,7 +20,8 @@ import { ItemModule } from './menu/menu.module';
       { path: '', component: WelcomeComponent },
       { path: 'menu', component: MenuComponent }
     ]),
-    ItemModule
+    ItemModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,

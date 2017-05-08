@@ -27,10 +27,10 @@
 							</header>
                             <form method="post" action="#">
 								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name of restaraunt/take-away" /></div>
+									<div class="6u 12u$(mobile)"><input #placeBox type="text" [(ngModel)]="textvalue" name="name" placeholder="Name of restaraunt/take-away"  /></div>
 									<div class="6u$ 12u$(mobile)"><input type="text" name="location" placeholder="Location" /></div>
 									<div class="12u$">
-										<input type="submit" value="Search" (click)="search($event)"/>
+										<input type="submit" value="Search" (click)="search(placeBox.value)"/>
 									</div>
 								</div>
 							</form>                          
@@ -40,7 +40,25 @@
 				<!-- Menu -->
 					<section id="about" class="two">
 						<div class="container">
-
+						<div>
+							<table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Place</th>
+                                        <th style="text-align:center">Town</th>
+                                        <th>County</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+									{{items}}
+                                    <tr>
+                                        <td ng-bind="items.title"></td>
+                                        <td></td>
+                                        
+                                    </tr>
+                                    </tbody>
+                                </table>
+						</div>
 							<header>
 								<h2>Name of location goes here</h2>
 							</header>
@@ -57,10 +75,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr *ngFor="let item of items">
-                                        <td>{{item.name}}</td>
-                                        <td>{{item.description}}</td>
-                                        <td>{{item.price}}</td>
+									
+                                    <tr>
+                                        <td>{{items}}</td>
+                                        <td>{{items}}</td>
+                                        
                                     </tr>
                                     </tbody>
                                 </table>

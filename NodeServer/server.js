@@ -43,12 +43,16 @@ app.get('/getPlaces/:place', function (req, res) {
 			});
 });
 
-app.get('/getMenus', function (req, res) {
-	fs.readFile(__dirname + "/" + "menus.json", 'utf8', function (err, data){
-		res.writeHead(200, {'Content-Type' : 'application/json' ,"Access-Control-Allow-Origin": "*"} );
-		data = JSON.stringify({result:data});
-		console.log(data);
-		res.end(data);
-		});
+app.get('/getMenus/:id', function (req, res) {
+	var id = req.params.id;
+	db.collection("menus").find({"id": id}).toArray(function (err,document){;
+			//res.writeHead(200, {'Content-Type' : 'application/json' ,"Access-Control-Allow-Origin": "*"} );
+			//return document;
+			res.header("Access-Control-Allow-Origin", "*");
+			res.setHeader('Content-type', 'application/json');
+			var data = JSON.stringify({document});
+			res.send(data);
+			console.log(data);
+			});
 })
 	

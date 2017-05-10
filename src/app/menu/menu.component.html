@@ -45,28 +45,27 @@
                                     <thead>
                                     <tr>
                                         <th>Place</th>
-                                        <th style="text-align:center">Town</th>
-                                        <th>County</th>
+                                        <th>Address</th>
+										<th></th>
+										<th>Town</th>
+										<th>County</th>
+										<th>Phone no.</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-									{{items}}
-                                    <tr>
-                                        <td ng-bind="items.title"></td>
-                                        <td></td>
-                                        
+									<tr *ngFor='let place of places'>
+                                        <td style="text-align: -webkit-auto">{{place.title}}</td>
+                                        <td style="text-align: -webkit-auto">{{place.line1}}</td>
+										<td style="text-align: -webkit-auto">{{place.line2}}</td>
+										<td style="text-align: -webkit-auto">{{place.town}}</td>
+										<td style="text-align: -webkit-auto">{{place.county}}</td>
+										<td style="text-align: -webkit-auto">{{place.phone}}</td>   
                                     </tr>
                                     </tbody>
                                 </table>
 						</div>
-							<header>
-								<h2>Name of location goes here</h2>
-							</header>
-
-							<p>short bio/contact details maybe
-							</p>
         
-                                <table class="table table-hover">
+                               <!-- <table class="table table-hover">
                                     <thead>
                                     <tr>
                                         <th>Menu Item</th>
@@ -75,15 +74,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-									
-                                    <tr>
-                                        <td>{{items}}</td>
-                                        <td>{{items}}</td>
-                                        
+									{{menus}}
+                                    <tr *ngFor='let menu of menus'>
+                                        <td>{{menu.title}}</td>
                                     </tr>
                                     </tbody>
-                                </table>
-                            </div>
+                                </table> -->
+                            </div> 
 					</section>
 
 			</div>

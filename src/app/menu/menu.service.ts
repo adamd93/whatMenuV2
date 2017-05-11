@@ -30,7 +30,7 @@ export class ItemService {
         console.log(id);
     return this._http.get(this.menuUrl + "/" + id)
                     .map(this.extractData)
-                    .do(data => console.log('getProducts: ' + JSON.stringify(data)))
+                    .do(data => console.log('getMenu: ' + JSON.stringify(data)))
                     .catch(this.handleError);           
     }
     private extractData(res: Response) {

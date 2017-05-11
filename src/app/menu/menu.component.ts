@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
     name : string ="work motherfucker";
     errorMessage: string;
     private sub: Subscription;
-    menu: IMenu[];
+    menus: IMenu[];
     
     constructor(private _route: ActivatedRoute,
                 private _router: Router,
@@ -32,7 +32,8 @@ export class MenuComponent implements OnInit {
         this._itemService.getPlaces(value).subscribe(places => this.places = places)         
     }
     getMenu(value:string){
-        this._itemService.getMenu(value).subscribe(menu => this.menu = menu)         
+        console.log(value);
+        this._itemService.getMenu(value).subscribe(menus => this.menus = menus)         
     }
 
 }

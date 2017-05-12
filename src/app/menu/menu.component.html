@@ -70,15 +70,16 @@
 							<table class="table table-hover">
 								<thead>
 								<tr>
-									<th>Menu Item</th>
-									<th style="text-align:center">Description</th>
-									<th>Price</th>
+									<th style="text-align: -webkit-auto">Menu Item</th>
+									<th style="text-align: -webkit-auto">Description</th>
+									<th style="text-align: -webkit-auto">Price</th>
 								</tr>
 								</thead>
 								<tbody>
-								<tr *ngFor='let item of menu.item'>
+								<tr *ngFor='let item of menu.items; let i = index'>
 									<td>{{item}}</td>
-									<td>menu item</td>
+									<td>{{menu.descriptions[i]}}</td>
+									<td>€{{menu.prices[i]}}</td>
 								</tr>
 								</tbody>
 							</table>
